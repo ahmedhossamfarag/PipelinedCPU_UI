@@ -5,7 +5,11 @@ import models.architecture.Codes.ALUCode._
 import models.architecture.Codes.OpCode._
 import models.architecture.{Architecture, Codes}
 
-class ALU(val arch: Architecture){
+class ALU(var architectureController: ArchitectureController){
+
+  def arch: Architecture = architectureController.arch
+
+  def forwardControl: ForwardControl = architectureController.forwardControl
 
   private def getCode: Option[Codes.ALUCode] = {
     val op = Codes.OpCode.fromCode(arch.id_ex.inst.opCode)
@@ -19,13 +23,25 @@ class ALU(val arch: Architecture){
     }
   }
 
+  private def getArg1: Int = {
+    forwardControl.forwardALUSrc(arch.id_ex.inst.src_1).getOrElse(
+      arch.id_ex.data1
+    )
+  }
+
+  private def getArg2: Int =
+    if(arch.id_ex.ex.aluSrc) arch.id_ex.inst.immediate else
+      forwardControl.forwardALUSrc(arch.id_ex.inst.src_2).getOrElse(
+        arch.id_ex.data2
+      )
+
   def output: Int = {
     val code = getCode
 
     if(code.isEmpty) return 0
 
-    val arg1 = arch.id_ex.data1
-    val arg2 = if(arch.id_ex.ex.aluSrc) arch.id_ex.inst.immediate else arch.id_ex.data2
+    val arg1 = getArg1
+    val arg2 = getArg2
     code.get match {
       case ADD  => arg1 + arg2
       case SUB  => arg1 - arg2

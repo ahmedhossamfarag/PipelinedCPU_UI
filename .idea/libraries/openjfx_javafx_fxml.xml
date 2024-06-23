@@ -1,0 +1,35 @@
+<component name="libraryTable">
+  <library name="openjfx.javafx.fxml" type="repository">
+    <properties maven-id="org.openjfx:javafx-fxml:17" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.jdks/javafx-17/fxml/javafx-fxml-17.jar!/" />
+      <root url="jar://$USER_HOME$/.jdks/javafx-17/fxml/javafx-fxml-17-win.jar!/" />
+      <root url="jar://$USER_HOME$/.jdks/javafx-17/fxml/javafx-controls-17.jar!/" />
+      <root url="jar://$USER_HOME$/.jdks/javafx-17/fxml/javafx-controls-17-win.jar!/" />
+      <root url="jar://$USER_HOME$/.jdks/javafx-17/fxml/javafx-graphics-17.jar!/" />
+      <root url="jar://$USER_HOME$/.jdks/javafx-17/fxml/javafx-graphics-17-win.jar!/" />
+      <root url="jar://$USER_HOME$/.jdks/javafx-17/fxml/javafx-base-17.jar!/" />
+      <root url="jar://$USER_HOME$/.jdks/javafx-17/fxml/javafx-base-17-win.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.jdks/javafx-17/fxml/javafx-fxml-17-javadoc.jar!/" />
+      <root url="jar://$USER_HOME$/.jdks/javafx-17/fxml/javafx-fxml-17-javadoc.jar!/" />
+      <root url="jar://$USER_HOME$/.jdks/javafx-17/fxml/javafx-controls-17-javadoc.jar!/" />
+      <root url="jar://$USER_HOME$/.jdks/javafx-17/fxml/javafx-controls-17-javadoc.jar!/" />
+      <root url="jar://$USER_HOME$/.jdks/javafx-17/fxml/javafx-graphics-17-javadoc.jar!/" />
+      <root url="jar://$USER_HOME$/.jdks/javafx-17/fxml/javafx-graphics-17-javadoc.jar!/" />
+      <root url="jar://$USER_HOME$/.jdks/javafx-17/fxml/javafx-base-17-javadoc.jar!/" />
+      <root url="jar://$USER_HOME$/.jdks/javafx-17/fxml/javafx-base-17-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.jdks/javafx-17/fxml/javafx-fxml-17-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.jdks/javafx-17/fxml/javafx-fxml-17-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.jdks/javafx-17/fxml/javafx-controls-17-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.jdks/javafx-17/fxml/javafx-controls-17-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.jdks/javafx-17/fxml/javafx-graphics-17-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.jdks/javafx-17/fxml/javafx-graphics-17-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.jdks/javafx-17/fxml/javafx-base-17-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.jdks/javafx-17/fxml/javafx-base-17-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

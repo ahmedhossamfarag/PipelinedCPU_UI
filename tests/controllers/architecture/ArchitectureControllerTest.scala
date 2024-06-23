@@ -2,13 +2,23 @@ package controllers.architecture
 
 import models.architecture.Codes.{OpCode, Register}
 import models.architecture.Architecture
+import org.scalatest.BeforeAndAfterEach
 import org.scalatest.funsuite.AnyFunSuiteLike
 
-class ArchitectureControllerTest extends AnyFunSuiteLike {
-  val instructions: Array[Int] = Array.fill(10)(0)
-  val data: Array[Int] = Array(0,1,2,3,4,5,6,7,8,9)
-  val arch = new Architecture(instructions, data)
-  val archController = new ArchitectureController(arch)
+class ArchitectureControllerTest extends AnyFunSuiteLike with BeforeAndAfterEach{
+
+  var instructions: Array[Int] = Array.fill(10)(0)
+  var data: Array[Int] = Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
+  var arch = new Architecture(instructions, data)
+  var archController = new ArchitectureController(arch)
+
+  override def beforeEach(): Unit = {
+    super.beforeEach()
+    instructions = Array.fill(10)(0)
+    data = Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
+    arch = new Architecture(instructions, data)
+    archController = new ArchitectureController(arch)
+  }
 
 
   test("testFetch") {
@@ -20,14 +30,12 @@ class ArchitectureControllerTest extends AnyFunSuiteLike {
     assert(if_id.pc == 16)
     assert(if_id.inst.get == instructions(3))
 
-    instructions(2) = 0xfac10
     arch.pc = 8
-    arch.ex_mem.nextPc = 20
-    arch.ex_mem.opCode = OpCode.J.code
+    arch.if_id.pc = 4
+    arch.if_id.inst.setWith(opCode = OpCode.J.code, jOffset = 20)
     if_id = archController.fetch
-    assert(arch.pc == 20)
-    assert(if_id.pc == 12)
-    assert(if_id.inst.get == instructions(2))
+    assert(arch.pc == 84)
+    assert(if_id.pc == 0)
 
   }
 
@@ -47,18 +55,32 @@ class ArchitectureControllerTest extends AnyFunSuiteLike {
     assert(id_ex.inst.get == arch.if_id.inst.get)
     assert(id_ex.data1 == 10)
     assert(id_ex.data2 == -6)
+
+
+    arch.if_id.inst.setWith(src_1 = Register.CX.code, src_2 = Register.BX.code)
+    arch.ex_mem.opCode = OpCode.BNE.code
+    arch.ex_mem.aluZero = false
+    id_ex = archController.decode
+    assert(id_ex.inst.get == 0)
   }
 
   test("testExecute") {
     arch.id_ex.pc = 4
     arch.id_ex.inst.setWith(opCode = OpCode.BEQ.code, bOffset = 10)
     var ex_mem = archController.execute
-    assert(ex_mem.nextPc == 44)
+     assert(ex_mem.nextPc == 44)
 
     arch.id_ex.inst.setWith(src_2 = 5, dDst = 3)
     arch.id_ex.ex.regDst = true
     ex_mem = archController.execute
     assert(ex_mem.dstRg == 3)
+
+
+    arch.id_ex.inst.setWith(opCode = OpCode.ADDI.code)
+    arch.ex_mem.opCode = OpCode.BNE.code
+    arch.ex_mem.aluZero = false
+    ex_mem = archController.execute
+    assert(ex_mem.opCode == 0 && ex_mem.aluResult == 0)
   }
 
   test("testMemoryAccess") {

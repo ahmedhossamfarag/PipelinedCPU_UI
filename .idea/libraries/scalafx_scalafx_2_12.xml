@@ -1,0 +1,20 @@
+<component name="libraryTable">
+  <library name="scalafx.scalafx_2.12" type="repository">
+    <properties maven-id="org.scalafx:scalafx_2.12:12.0.2-R18" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scalafx/scalafx_2.12-12.0.2-R18.jar!/" />
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scalafx/scala-library-2.12.9.jar!/" />
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scalafx/scala-reflect-2.12.9.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scalafx/scalafx_2.12-12.0.2-R18-javadoc.jar!/" />
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scalafx/scala-library-2.12.9-javadoc.jar!/" />
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scalafx/scala-reflect-2.12.9-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scalafx/scalafx_2.12-12.0.2-R18-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scalafx/scala-library-2.12.9-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scalafx/scala-reflect-2.12.9-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

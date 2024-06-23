@@ -7,7 +7,7 @@ class Runner(val architectureController: ArchitectureController){
   def finish: Boolean = architectureController.arch.pc/4 == architectureController.arch.insMemory.size
 
   def step(show: Boolean = false): Unit = {
-    architectureController.performCycle
+    architectureController.performCycle()
 
     if(show){
       println(f"pc = ${architectureController.arch.pc}")

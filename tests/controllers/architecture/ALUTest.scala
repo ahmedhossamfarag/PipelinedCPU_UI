@@ -8,7 +8,7 @@ class ALUTest extends AnyFunSuiteLike {
 
   test("testOutput") {
     val arch = new Architecture(Array.empty, Array.empty)
-    val alu = new ALU(arch)
+    val alu = new ALU(new ArchitectureController(arch))
 
     arch.id_ex.data1 = 11
     arch.id_ex.data2 = 20

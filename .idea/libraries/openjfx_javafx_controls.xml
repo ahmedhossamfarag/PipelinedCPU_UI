@@ -1,0 +1,29 @@
+<component name="libraryTable">
+  <library name="openjfx.javafx.controls" type="repository">
+    <properties maven-id="org.openjfx:javafx-controls:17" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.jdks/javafx-17/controls/javafx-controls-17.jar!/" />
+      <root url="jar://$USER_HOME$/.jdks/javafx-17/controls/javafx-controls-17-win.jar!/" />
+      <root url="jar://$USER_HOME$/.jdks/javafx-17/controls/javafx-graphics-17.jar!/" />
+      <root url="jar://$USER_HOME$/.jdks/javafx-17/controls/javafx-graphics-17-win.jar!/" />
+      <root url="jar://$USER_HOME$/.jdks/javafx-17/controls/javafx-base-17.jar!/" />
+      <root url="jar://$USER_HOME$/.jdks/javafx-17/controls/javafx-base-17-win.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.jdks/javafx-17/controls/javafx-controls-17-javadoc.jar!/" />
+      <root url="jar://$USER_HOME$/.jdks/javafx-17/controls/javafx-controls-17-javadoc.jar!/" />
+      <root url="jar://$USER_HOME$/.jdks/javafx-17/controls/javafx-graphics-17-javadoc.jar!/" />
+      <root url="jar://$USER_HOME$/.jdks/javafx-17/controls/javafx-graphics-17-javadoc.jar!/" />
+      <root url="jar://$USER_HOME$/.jdks/javafx-17/controls/javafx-base-17-javadoc.jar!/" />
+      <root url="jar://$USER_HOME$/.jdks/javafx-17/controls/javafx-base-17-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.jdks/javafx-17/controls/javafx-controls-17-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.jdks/javafx-17/controls/javafx-controls-17-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.jdks/javafx-17/controls/javafx-graphics-17-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.jdks/javafx-17/controls/javafx-graphics-17-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.jdks/javafx-17/controls/javafx-base-17-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.jdks/javafx-17/controls/javafx-base-17-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
