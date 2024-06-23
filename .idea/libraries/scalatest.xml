@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="scalatest">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.ivy2/cache/org.scala-lang/scalatest" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$USER_HOME$/.ivy2/cache/org.scala-lang/scalatest" />
+    </SOURCES>
+    <jarDirectory url="file://$USER_HOME$/.ivy2/cache/org.scala-lang/scalatest" recursive="false" />
+    <jarDirectory url="file://$USER_HOME$/.ivy2/cache/org.scala-lang/scalatest" recursive="false" type="SOURCES" />
+  </library>
+</component>
