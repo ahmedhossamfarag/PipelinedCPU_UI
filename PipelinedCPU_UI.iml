@@ -1,19 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="JAVA_MODULE" version="4">
-  <component name="NewModuleRootManager" inherit-compiler-output="true">
-    <exclude-output />
-    <content url="file://$MODULE_DIR$">
+  <component name="AdditionalModuleElements">
+    <content url="file://$MODULE_DIR$" dumb="true">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
     </content>
-    <orderEntry type="inheritedJdk" />
-    <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="scala-sdk-2.13.14" level="application" />
-    <orderEntry type="library" scope="TEST" name="scalatest" level="project" />
-    <orderEntry type="library" name="scalafx.scalafx_2.12" level="project" />
-    <orderEntry type="library" name="openjfx.javafx.base" level="project" />
-    <orderEntry type="library" name="openjfx.javafx.controls" level="project" />
-    <orderEntry type="library" name="openjfx.javafx.fxml" level="project" />
-    <orderEntry type="library" name="openjfx.javafx.graphics" level="project" />
   </component>
 </module>
