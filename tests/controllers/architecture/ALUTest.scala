@@ -14,18 +14,23 @@ class ALUTest extends AnyFunSuiteLike {
     arch.id_ex.data2 = 20
 
     arch.id_ex.inst.setWith(opCode = OpCode.ALU.code,aluCode = ALUCode.ADD.code)
+    alu.updateSignals()
     assert(alu.output == 31)
 
     arch.id_ex.inst.setWith(opCode = OpCode.ALU.code,aluCode = ALUCode.SUB.code)
+    alu.updateSignals()
     assert(alu.output == -9)
 
     arch.id_ex.inst.setWith(opCode = OpCode.ALU.code,aluCode = ALUCode.SLT.code)
+    alu.updateSignals()
     assert(alu.output == 1)
 
     arch.id_ex.inst.setWith(opCode = OpCode.ALU.code,aluCode = ALUCode.SLTU.code)
+    alu.updateSignals()
     assert(alu.output == 1)
 
     arch.id_ex.inst.setWith(opCode = OpCode.BEQ.code)
+    alu.updateSignals()
     assert(alu.output == -9)
 
   }

@@ -1,8 +1,9 @@
 package controllers.architecture
 
+import models.architecture.signals.SignalsController
 import models.architecture.{Architecture, EX_MEM, ID_EX, IF_ID, MEM_WB}
 
-class ArchitectureController(val arch: Architecture){
+class ArchitectureController(val arch: Architecture) extends SignalsController{
   val registersControl = new RegistersControl(arch.registers)
   val alu = new ALU(this)
   val controlMap = new ControlMap(arch)
@@ -12,7 +13,7 @@ class ArchitectureController(val arch: Architecture){
   def fetch: IF_ID = {
     val if_id = new IF_ID()
 
-    if(!branchControl.willBranch & !branchControl.willJump) {
+    if(!arch.branchSignals.willBranch & !arch.branchSignals.willJump) {
       if_id.pc = arch.pc + 4
       if_id.inst.set(arch.insMemory.get(arch.pc / 4))
     }
@@ -25,17 +26,16 @@ class ArchitectureController(val arch: Architecture){
   def decode: ID_EX = {
     val id_ex = new ID_EX()
 
-    if(!branchControl.willBranch) {
-      val map = controlMap.map
-      id_ex.wb = map.wb
-      id_ex.m = map.m
-      id_ex.ex = map.ex
+    if(!arch.branchSignals.willBranch) {
+      id_ex.wb = arch.controlSignals.wb
+      id_ex.m = arch.controlSignals.m
+      id_ex.ex = arch.controlSignals.ex
 
       id_ex.pc = arch.if_id.pc
 
-      id_ex.data1 = forwardControl.forwardRgRead(arch.if_id.inst.src_1)
+      id_ex.data1 = forwardControl.read(arch.forwardSignals.readData1Signal)
         .getOrElse(registersControl.get(arch.if_id.inst.src_1).getOrElse(0))
-      id_ex.data2 = forwardControl.forwardRgRead(arch.if_id.inst.src_2)
+      id_ex.data2 = forwardControl.read(arch.forwardSignals.readData2Signal)
         .getOrElse(registersControl.get(arch.if_id.inst.src_2).getOrElse(0))
 
       id_ex.inst = arch.if_id.inst
@@ -47,7 +47,7 @@ class ArchitectureController(val arch: Architecture){
   def execute: EX_MEM = {
     val ex_mem = new EX_MEM()
 
-    if(!branchControl.willBranch) {
+    if(!arch.branchSignals.willBranch) {
       ex_mem.wb = arch.id_ex.wb
       ex_mem.m = arch.id_ex.m
 
@@ -60,7 +60,7 @@ class ArchitectureController(val arch: Architecture){
       ex_mem.aluResult = alu.output
       ex_mem.aluZero = ex_mem.aluResult == 0
 
-      ex_mem.data2 = forwardControl.forwardALUSrc(arch.id_ex.inst.src_2).getOrElse(arch.id_ex.data2)
+      ex_mem.data2 = forwardControl.read(arch.forwardSignals.aluSrc2Signal).getOrElse(arch.id_ex.data2)
 
       ex_mem.dstRg = if (arch.id_ex.ex.regDst) arch.id_ex.inst.dDst else arch.id_ex.inst.iDst
     }
@@ -105,6 +105,15 @@ class ArchitectureController(val arch: Architecture){
     arch.id_ex = id_ex
     arch.ex_mem = ex_mem
     arch.mem_wb = mem_wb
+
+    updateSignals()
+  }
+
+  override def updateSignals(): Unit = {
+    controlMap.updateSignals()
+    branchControl.updateSignals()
+    forwardControl.updateSignals()
+    alu.updateSignals()
   }
 
 }

@@ -25,6 +25,7 @@ class ArchitectureControllerTest extends AnyFunSuiteLike with BeforeAndAfterEach
     instructions(3) = 0xffa01
 
     arch.pc = 12
+    archController.updateSignals()
     var if_id = archController.fetch
     assert(arch.pc == 16)
     assert(if_id.pc == 16)
@@ -33,6 +34,7 @@ class ArchitectureControllerTest extends AnyFunSuiteLike with BeforeAndAfterEach
     arch.pc = 8
     arch.if_id.pc = 4
     arch.if_id.inst.setWith(opCode = OpCode.J.code, jOffset = 20)
+    archController.updateSignals()
     if_id = archController.fetch
     assert(arch.pc == 84)
     assert(if_id.pc == 0)
@@ -43,6 +45,7 @@ class ArchitectureControllerTest extends AnyFunSuiteLike with BeforeAndAfterEach
     arch.if_id.inst.setWith(src_1 = Register.AX.code, src_2 = Register.BX.code)
     archController.registersControl.set(Register.AX.code, 15)
     archController.registersControl.set(Register.BX.code, -3)
+    archController.updateSignals()
     var id_ex = archController.decode
     assert(id_ex.inst.get == arch.if_id.inst.get)
     assert(id_ex.data1 == 15)
@@ -51,6 +54,7 @@ class ArchitectureControllerTest extends AnyFunSuiteLike with BeforeAndAfterEach
     arch.if_id.inst.setWith(src_1 = Register.CX.code, src_2 = Register.BX.code)
     archController.registersControl.set(Register.CX.code, 10)
     archController.registersControl.set(Register.BX.code, -6)
+    archController.updateSignals()
     id_ex = archController.decode
     assert(id_ex.inst.get == arch.if_id.inst.get)
     assert(id_ex.data1 == 10)
@@ -60,6 +64,7 @@ class ArchitectureControllerTest extends AnyFunSuiteLike with BeforeAndAfterEach
     arch.if_id.inst.setWith(src_1 = Register.CX.code, src_2 = Register.BX.code)
     arch.ex_mem.opCode = OpCode.BNE.code
     arch.ex_mem.aluZero = false
+    archController.updateSignals()
     id_ex = archController.decode
     assert(id_ex.inst.get == 0)
   }
@@ -67,11 +72,13 @@ class ArchitectureControllerTest extends AnyFunSuiteLike with BeforeAndAfterEach
   test("testExecute") {
     arch.id_ex.pc = 4
     arch.id_ex.inst.setWith(opCode = OpCode.BEQ.code, bOffset = 10)
+    archController.updateSignals()
     var ex_mem = archController.execute
      assert(ex_mem.nextPc == 44)
 
     arch.id_ex.inst.setWith(src_2 = 5, dDst = 3)
     arch.id_ex.ex.regDst = true
+    archController.updateSignals()
     ex_mem = archController.execute
     assert(ex_mem.dstRg == 3)
 
@@ -79,6 +86,7 @@ class ArchitectureControllerTest extends AnyFunSuiteLike with BeforeAndAfterEach
     arch.id_ex.inst.setWith(opCode = OpCode.ADDI.code)
     arch.ex_mem.opCode = OpCode.BNE.code
     arch.ex_mem.aluZero = false
+    archController.updateSignals()
     ex_mem = archController.execute
     assert(ex_mem.opCode == 0 && ex_mem.aluResult == 0)
   }
@@ -88,6 +96,7 @@ class ArchitectureControllerTest extends AnyFunSuiteLike with BeforeAndAfterEach
     arch.ex_mem.aluResult = 3
     arch.ex_mem.data2 = -1
     arch.ex_mem.m.memRead = true
+    archController.updateSignals()
     var mem_wb = archController.memoryAccess
     assert(mem_wb.memData == data(3))
     assert(data(3) == 3)
@@ -97,6 +106,7 @@ class ArchitectureControllerTest extends AnyFunSuiteLike with BeforeAndAfterEach
     arch.ex_mem.data2 = -1
     arch.ex_mem.m.memWrite = true
     arch.ex_mem.m.memRead = false
+    archController.updateSignals()
     mem_wb = archController.memoryAccess
     assert(mem_wb.memData == 0)
     assert(data(3) == -1)

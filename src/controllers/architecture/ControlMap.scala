@@ -2,10 +2,11 @@ package controllers.architecture
 
 import models.architecture.{Architecture, Codes, Control}
 import models.architecture.Codes.OpCode._
+import models.architecture.signals.{ControlSignals, SignalsController}
 
-class ControlMap(arch: Architecture){
+class ControlMap(arch: Architecture) extends SignalsController{
 
-  private def mapEX(code: Codes.OpCode)(map: Control.CMap): Unit = {
+  private def mapEX(code: Codes.OpCode)(map: ControlSignals): Unit = {
     map.ex.aluSrc = code match {
       case LW | SW | ADDI => true
       case _ => false
@@ -16,7 +17,7 @@ class ControlMap(arch: Architecture){
     }
   }
 
-  private def mapM(code: Codes.OpCode)(map: Control.CMap): Unit = {
+  private def mapM(code: Codes.OpCode)(map: ControlSignals): Unit = {
     map.m.memRead = code match {
       case LW => true
       case _ => false
@@ -27,7 +28,7 @@ class ControlMap(arch: Architecture){
     }
   }
 
-  private def mapWB(code: Codes.OpCode)(map: Control.CMap): Unit = {
+  private def mapWB(code: Codes.OpCode)(map: ControlSignals): Unit = {
     map.wb.regWrite = code match {
       case ALU | ADDI | LW => true
       case _ => false
@@ -38,8 +39,8 @@ class ControlMap(arch: Architecture){
     }
   }
 
-  def map: Control.CMap = {
-    val map = new Control.CMap()
+  def map: ControlSignals = {
+    val map = new ControlSignals()
     val code = Codes.OpCode.fromCode(arch.if_id.inst.opCode)
 
     if (code.isEmpty) return map
@@ -51,4 +52,7 @@ class ControlMap(arch: Architecture){
     map
   }
 
+  override def updateSignals(): Unit = {
+    arch.controlSignals = map
+  }
 }

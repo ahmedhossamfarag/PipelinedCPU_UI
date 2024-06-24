@@ -1,5 +1,7 @@
 package models.architecture
 
+import models.architecture.signals._
+
 class Architecture(instructions: Array[Int], data: Array[Int]) {
   var pc : Int = 0
   val insMemory: Memory = new Memory(instructions)
@@ -9,4 +11,10 @@ class Architecture(instructions: Array[Int], data: Array[Int]) {
   var ex_mem : EX_MEM = new EX_MEM()
   val memory: Memory = new Memory(data)
   var mem_wb : MEM_WB = new MEM_WB()
+
+  // Signals
+  var controlSignals: ControlSignals = new ControlSignals()
+  val branchSignals : BranchSignals = new BranchSignals()
+  val aluSignals : ALUSignals = new ALUSignals()
+  val forwardSignals : ForwardSignals = new ForwardSignals()
 }

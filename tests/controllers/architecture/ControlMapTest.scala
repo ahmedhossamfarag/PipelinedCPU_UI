@@ -11,7 +11,8 @@ class ControlMapTest extends AnyFunSuiteLike {
     val controlMap = new ControlMap(arch)
 
     arch.if_id.inst.setWith(opCode = OpCode.BEQ.code)
-    var map = controlMap.map
+    controlMap.updateSignals()
+    var map = arch.controlSignals
     assert(!map.wb.regWrite)
     assert(!map.m.memWrite && !map.m.memRead)
     assert(!map.ex.aluSrc)

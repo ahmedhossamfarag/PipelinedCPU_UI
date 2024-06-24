@@ -13,10 +13,4 @@ object Control {
     var aluSrc: Boolean = false
     var regDst: Boolean = true
   }
-
-  class CMap{
-    var wb: WB = new WB()
-    var m: M = new M()
-    var ex: EX = new EX()
-  }
 }
