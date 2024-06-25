@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="200.0" styleClass="my-gradient" stylesheets="@style.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.architecture.DataMemoView">
+   <top>
+       <HBox alignment="CENTER" prefWidth="200.0" BorderPane.alignment="CENTER">
+           <Label fx:id="output" alignment="BASELINE_CENTER" prefWidth="100.0" text="00000000" textAlignment="CENTER" />
+       </HBox>
+   </top>
+   <center>
+      <Label rotate="-90.0" text="Memory" textAlignment="CENTER" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+   </center>
+</BorderPane>

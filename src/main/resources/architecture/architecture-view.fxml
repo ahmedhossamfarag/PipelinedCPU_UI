@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Ellipse?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.architecture.ArchitectureView">
+   <Pane layoutX="11.0" layoutY="449.0" rotate="90.0">
+      <Button fx:id="pc" mnemonicParsing="false" prefWidth="100.0" text="00000000" />
+   </Pane>
+   <Pane layoutX="90.0" layoutY="416.0" rotate="90.0">
+      <fx:include fx:id="instMemoView" source="inst-memo-view.fxml" />
+   </Pane>
+   <Pane layoutX="100.0" layoutY="392.0" rotate="90.0">
+      <fx:include fx:id="if_id_View" source="if-id-view.fxml" />
+   </Pane>
+   <Pane layoutX="364.0" layoutY="286.0" rotate="90.0">
+      <fx:include fx:id="registersView" source="registers-view.fxml" />
+   </Pane>
+   <Pane layoutX="305.0" layoutY="328.0" rotate="90.0">
+      <fx:include fx:id="id_ex_View" source="id-ex-view.fxml" />
+   </Pane>
+   <Pane layoutX="580.0" layoutY="348.0" rotate="90.0">
+      <fx:include fx:id="ex_mem_View" source="ex-mem-view.fxml" />
+   </Pane>
+   <Pane layoutX="863.0" layoutY="330.0" rotate="90.0">
+      <fx:include fx:id="dataMemoView" source="data-memo-view.fxml" />
+   </Pane>
+   <Pane layoutX="904.0" layoutY="392.0" rotate="90.0">
+      <fx:include fx:id="mem_wb_View" source="mem-wb-view.fxml" />
+   </Pane>
+   <Pane layoutX="666.0" layoutY="300.0" rotate="90.0">
+      <fx:include fx:id="aluView" source="alu-view.fxml" />
+   </Pane>
+   <Ellipse fill="DODGERBLUE" layoutX="464.0" layoutY="95.0" radiusX="41.0" radiusY="58.0" stroke="BLACK" strokeType="INSIDE" />
+   <Ellipse fill="DODGERBLUE" layoutX="723.0" layoutY="661.0" radiusX="75.0" radiusY="25.0" stroke="BLACK" strokeType="INSIDE" />
+   <Label layoutX="444.0" layoutY="87.0" text="Control" />
+   <Label layoutX="680.0" layoutY="653.0" text="Forward Control" />
+   <Label layoutX="695.0" layoutY="340.0" text="ALU" />
+   <Label fx:id="if_id_label" alignment="CENTER" layoutX="305.0" layoutY="153.0" prefWidth="40.0" style="-fx-border-style: solid;" text="-1" textFill="#1a530e" />
+   <Label fx:id="id_ex_label" alignment="CENTER" layoutX="580.0" layoutY="18.0" prefWidth="40.0" style="-fx-border-style: solid;" text="-1" textFill="#1a530e" />
+   <Label fx:id="ex_mem_label" alignment="CENTER" layoutX="802.0" layoutY="95.0" prefWidth="40.0" style="-fx-border-style: solid;" text="-1" textFill="#1a530e" />
+   <Label fx:id="mem_wb_label" alignment="CENTER" layoutX="1075.0" layoutY="188.0" prefWidth="40.0" style="-fx-border-style: solid;" text="-1" textFill="#1a530e" />
+   <Ellipse fill="DODGERBLUE" layoutX="900.0" layoutY="232.0" radiusX="27.0" radiusY="25.0" stroke="BLACK" strokeType="INSIDE" />
+   <Label layoutX="882.0" layoutY="224.0" text="Branch" />
+</Pane>

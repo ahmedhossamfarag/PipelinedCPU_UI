@@ -115,5 +115,4 @@ class ArchitectureController(val arch: Architecture) extends SignalsController{
     forwardControl.updateSignals()
     alu.updateSignals()
   }
-
 }

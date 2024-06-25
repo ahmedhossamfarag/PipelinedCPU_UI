@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="200.0" styleClass="my-gradient" stylesheets="@style.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.architecture.RegistersView">
+   <top>
+      <HBox prefWidth="200.0" BorderPane.alignment="CENTER">
+         <Label fx:id="output1" alignment="BASELINE_CENTER" prefWidth="100.0" text="00000000" textAlignment="CENTER" />
+         <Label fx:id="output2" alignment="BASELINE_CENTER" prefWidth="100.0" text="00000000" textAlignment="CENTER" />
+      </HBox>
+   </top>
+   <bottom>
+      <HBox prefWidth="200.0" BorderPane.alignment="CENTER">
+         <Label fx:id="src1" alignment="BASELINE_CENTER" prefWidth="50.0" text="000" textAlignment="CENTER" />
+         <Label fx:id="src2" alignment="BASELINE_CENTER" prefWidth="50.0" text="000" textAlignment="CENTER" />
+      </HBox>
+   </bottom>
+   <center>
+      <Label rotate="-90.0" text="Registers" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </center>
+</BorderPane>

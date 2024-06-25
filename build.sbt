@@ -11,6 +11,10 @@ lazy val root = (project in file("."))
 
 libraryDependencies += "org.scalafx" %% "scalafx" % "16.0.0-R24"
 
+scalacOptions += "-Ymacro-annotations"
+
+libraryDependencies += "org.scalafx" %% "scalafxml-core-sfx8" % "0.5"
+
 libraryDependencies ++= {
   // Determine OS version of JavaFX binaries
   lazy val osName = System.getProperty("os.name") match {

@@ -8,5 +8,8 @@ class RegistersControl(val registers: Registers) {
 
   def get(code: Int): Option[Int] = indexOf(code).map(registers.data(_))
 
-  def set(code: Int, value: Int): Unit = indexOf(code).foreach { registers.data(_) = value }
+  def set(code: Int, value: Int): Unit = indexOf(code).foreach {i =>
+    registers.data(i) = value
+    registers.observer.foreach(_.update(i, value))
+  }
 }

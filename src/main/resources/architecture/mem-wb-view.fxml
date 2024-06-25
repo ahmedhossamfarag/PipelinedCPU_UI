@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.architecture.MEM_WB_View">
+    <Button fx:id="wb" prefWidth="30.0" text="00" />
+    <Button fx:id="memData" prefWidth="150.0" text="00000000" />
+    <Button fx:id="aluResult" prefWidth="150.0" text="00000000" />
+    <Button fx:id="dstRg" prefWidth="50.0" text="000" />
+</HBox>
